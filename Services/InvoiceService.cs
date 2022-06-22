@@ -10,10 +10,10 @@ namespace FAR.Services
     {
         #region Singleton
         private static InvoiceService instance;
-        private InvoiceService(){ }
+        private InvoiceService() { }
         public static InvoiceService getIstance()
         {
-            if(instance == null)
+            if (instance == null)
             {
                 instance = new InvoiceService();
             }
@@ -22,11 +22,13 @@ namespace FAR.Services
         #endregion
 
         private XmlParser xmlParser = new XmlParser();
-        
+
         public async Task<Answer<Invoice[]>> GetInvoice(string path)
         {
             Answer<Invoice[]> answer = await xmlParser.Parse(path);
+
             return answer;
+
         }
 
         //public async Task<Answer<Invoice>> SaveInvoice(string path, params Invoice[] invoce)

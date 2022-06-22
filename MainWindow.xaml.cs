@@ -34,14 +34,19 @@ namespace FAR
                     var answer = task.Result;
                     if (answer.Result == Result.Ok)
                     {
-                        var invoices = answer.Attachment;
-                        foreach (var invoice in invoices)
-                        {
-                            MessageBox.Show(invoice.Number, answer.Result.ToString(), MessageBoxButton.OK);
-
-                        }
+                        DataGrid.ItemsSource = answer.Attachment;
 
                     }
+                    else
+                    {
+                        MessageBox.Show(answer.Description);
+                    }
+
+                    //foreach (var invoice in answer.Attachment)
+                    //{
+                    //}
+
+
 
                 }
                 else

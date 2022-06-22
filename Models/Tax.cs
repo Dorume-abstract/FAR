@@ -9,6 +9,6 @@ namespace FAR.Models
         public string Name { get; set; }
         public bool Included { get; set; }
         public decimal Amount { get; set; }
-        public string Desc { get; set; }
+        public string Rate { get; set; }
     }
 }

@@ -11,13 +11,10 @@ namespace FAR.Models
         public string Name { get; set; }
         public string OfficialName { get; set; }
         public string LegalAdress { get; set; }
-
-        #region Not reguired
+        public string FullName { get; set; }
         public string Code { get; set; }
-        public string TIN { get; set; } //TAX ID NUMBER
-        #endregion
-
-        public Role role { get; set; }
+        public string TIN { get; set; } //TAX 
+        public Role Role { get; set; }
 
 
 
