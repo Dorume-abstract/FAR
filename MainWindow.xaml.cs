@@ -4,6 +4,7 @@ using FAR.Services;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
@@ -17,6 +18,8 @@ namespace FAR
         public MainWindow()
         {
             InitializeComponent();
+            SaveAs.IsEnabled = false;
+            ReplaceFunct.IsEnabled = false;
         }
         InvoiceService invoiceService = InvoiceService.getIstance();
         List<Invoice> invoices = new List<Invoice>();
@@ -50,6 +53,17 @@ namespace FAR
 
                 }
             }
+
+            if (invoices.Count == 0)
+            {
+                SaveAs.IsEnabled = false;
+                ReplaceFunct.IsEnabled = false;
+            }
+            else
+            {
+                SaveAs.IsEnabled = true;
+                ReplaceFunct.IsEnabled = true;
+            }
         }
 
         private async void SaveAsClick(object sender, RoutedEventArgs e)
@@ -79,6 +93,27 @@ namespace FAR
                 catch (Exception e)
                 {
                     Console.WriteLine(e);
+                }
+            }
+        }
+
+        private void ReplaceFunctClick(object sender, RoutedEventArgs e)
+        {
+            using (MyContext itemContext = new MyContext())
+            {
+                foreach (Invoice invoice in invoices)
+                {
+                    foreach (Product product in invoice.Products)
+                    {
+                        ProductName productName = itemContext.ProductNames.Where(productDB => productDB.RealName.Contains(product.Name)).FirstOrDefault() ??
+                            new ProductName()
+                            {
+                                AmbarName = product.Name,
+                            }
+                            ;
+                        product.Name = productName.AmbarName;
+                    }
+
                 }
             }
         }
