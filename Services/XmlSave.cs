@@ -21,7 +21,10 @@ namespace FAR.Services
                 });
             }
 
-            XmlWriter writer = XmlWriter.Create(fullPath);
+            XmlWriterSettings settings = new XmlWriterSettings();
+            settings.Indent = true;
+            settings.Encoding = Encoding.UTF8;
+            XmlWriter writer = XmlWriter.Create(fullPath, settings);
             writer.WriteStartDocument();
             writer.WriteStartElement("КоммерческаяИнформация");
             writer.WriteAttributeString("ВерсияСхемы", "2.03");
