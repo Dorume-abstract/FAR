@@ -16,6 +16,7 @@
                 <DataGridTextColumn Header="Кількість позицій" Binding="{Binding Products.Length}"/>
             </DataGrid.Columns>
         </DataGrid>
+        <Button Content="Do Not Touch me" HorizontalAlignment="Left" Margin="617,404,0,0" VerticalAlignment="Top" Click="Button_Click_1"/>
 
     </Grid>
 </Window>

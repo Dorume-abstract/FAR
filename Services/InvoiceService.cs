@@ -22,6 +22,7 @@ namespace FAR.Services
         #endregion
 
         private XmlParser xmlParser = new XmlParser();
+        private XmlSave xmlSave = new XmlSave();
 
         public async Task<Answer<Invoice[]>> GetInvoice(string path)
         {
@@ -31,9 +32,10 @@ namespace FAR.Services
 
         }
 
-        //public async Task<Answer<Invoice>> SaveInvoice(string path, params Invoice[] invoce)
-        //{
-        //    return new Answer<Invoice>();
-        //}
+        public async Task<Answer<Object>> SaveInvoice(string fullPath, Invoice[] invoces)
+        {
+            Answer<Object> answer = await xmlSave.Save(fullPath, invoces);
+            return answer;
+        }
     }
 }
