@@ -4,7 +4,7 @@ using System.Text;
 
 namespace FAR.Models
 {
-    class CounterActor
+    public class CounterActor
     {
 
         public string CounterActorId { get; set; }

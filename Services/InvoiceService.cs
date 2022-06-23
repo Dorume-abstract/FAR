@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FAR.Services
 {
-    internal class InvoiceService
+    public class InvoiceService
     {
         #region Singleton
         private static InvoiceService instance;

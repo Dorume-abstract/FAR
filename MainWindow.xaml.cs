@@ -117,5 +117,14 @@ namespace FAR
                 }
             }
         }
+
+        private void DataGrid_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            int selected_index = DataGrid.SelectedIndex;
+            InvoiceModal invoiceModal = new InvoiceModal();
+            invoiceModal.SetInvoice((Invoice)DataGrid.Items[selected_index]);
+            invoiceModal.ShowInvoice();
+            invoiceModal.ShowDialog();
+        }
     }
 }

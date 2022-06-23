@@ -1,0 +1,37 @@
+﻿<Window x:Class="FAR.InvoiceModal"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FAR"
+        mc:Ignorable="d"
+        Title="InvoiceModal" Height="450" Width="800" Icon="/загружено.jpg">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="14*"/>
+            <ColumnDefinition Width="305*"/>
+            <ColumnDefinition Width="86*"/>
+            <ColumnDefinition Width="30*"/>
+            <ColumnDefinition Width="365*"/>
+        </Grid.ColumnDefinitions>
+        <DataGrid x:Name="DataGrid" Grid.ColumnSpan="5" Margin="10,90,10,71" AutoGenerateColumns="False" IsReadOnly="True" SelectionMode="Single">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Найменування" Binding="{Binding Name}" Width="*"/>
+                <DataGridTextColumn Header="Кількість" Binding="{Binding Count}" Width="100"/>
+                <DataGridTextColumn Header="Ціна за одиницю" Binding="{Binding Price}" Width="150"/>
+                <DataGridTextColumn Header="Сума" Binding="{Binding Amount}" Width="150" />
+                <DataGridTextColumn Header="Одиниця виміру" Binding="{Binding Unit}" Width="150"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label x:Name="Number" Content="№: " HorizontalAlignment="Left" Margin="23,17,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+        <Label x:Name="CounterActor" Content="Контрагент: " HorizontalAlignment="Left" Margin="23,41,0,0" VerticalAlignment="Top" Width="554" Grid.ColumnSpan="4" Grid.Column="1"/>
+        <Label x:Name="Warehouse" Content="Місце призначення: " HorizontalAlignment="Left" Margin="16,17,0,0" VerticalAlignment="Top" Grid.ColumnSpan="3" Width="352" Grid.Column="2"/>
+        <Button x:Name="Close" Content="Закрити" Grid.Column="4" HorizontalAlignment="Right" Margin="0,0,9,10" Click="CloseClick" Height="32" VerticalAlignment="Bottom"/>
+        <Label x:Name="CountOfPos" Content="Кількість позицій: " Margin="10,0,53,42" Height="24" VerticalAlignment="Bottom" Grid.ColumnSpan="2"/>
+        <Grid Grid.Column="4" Margin="0,0,127,0" HorizontalAlignment="Right" Width="162" Height="66" VerticalAlignment="Bottom">
+            <Label x:Name="AmountVat" Content="Сума (ПДВ): " HorizontalAlignment="Left" RenderTransformOrigin="-0.658,0.625" Height="24" VerticalAlignment="Bottom" Margin="0,0,0,13"/>
+            <Label x:Name="Amount" Content="Сума: " HorizontalAlignment="Left" Margin="0,0,0,37" Height="24" VerticalAlignment="Bottom"/>
+        </Grid>
+
+    </Grid>
+</Window>

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace FAR.Models
 {
-    class BaseUnit
+    public class BaseUnit
     {
 
         public string Code { get; set; }

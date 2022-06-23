@@ -24,7 +24,7 @@
             <RowDefinition Height="2*"/>
         </Grid.RowDefinitions>
         <Button x:Name="ChooseInvoice" Content="Обрати накладні" Margin="10,0,0,10" Click="OpenInvoicesClick" Grid.RowSpan="2" Height="26" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="150" Grid.ColumnSpan="2"/>
-        <DataGrid x:Name="DataGrid" Margin="10,10,10,12" AutoGenerateColumns="False" Grid.ColumnSpan="2">
+        <DataGrid x:Name="DataGrid" Margin="10,10,10,12" AutoGenerateColumns="False" Grid.ColumnSpan="2" SelectionMode="Single" IsReadOnly="True" MouseDoubleClick="DataGrid_MouseDoubleClick">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Номер накладної" Binding="{Binding Number}" Width="150"/>
                 <DataGridTextColumn Header="Контрагент" Binding="{Binding Buyer.Name}" Width="*"/>

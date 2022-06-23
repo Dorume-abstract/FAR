@@ -4,7 +4,7 @@ using System.Text;
 
 namespace FAR.Models
 {
-    class Tax
+    public class Tax
     {
         public string Name { get; set; }
         public bool Included { get; set; }

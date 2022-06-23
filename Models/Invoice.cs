@@ -4,7 +4,7 @@ using System.Text;
 
 namespace FAR.Models
 {
-    internal class Invoice
+    public class Invoice
     {
         public string InvoiceId { get; set; }
         public string Number { get; set; }

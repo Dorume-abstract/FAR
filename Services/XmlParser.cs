@@ -8,7 +8,7 @@ using System.Xml;
 
 namespace FAR.Services
 {
-    internal class XmlParser
+    public class XmlParser
     {
         public Task<Answer<Invoice[]>> Parse(string path)
         {

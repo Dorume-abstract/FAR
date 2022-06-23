@@ -7,7 +7,7 @@ using System.Xml;
 
 namespace FAR.Services
 {
-    class XmlSave
+    public class XmlSave
     {
         public Task<Answer<Object>> Save(string fullPath, Invoice[] invoices)
         {
